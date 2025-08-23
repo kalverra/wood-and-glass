@@ -1,0 +1,3 @@
+[submodule "themes/hugo-myportfolio-theme"]
+	path = themes/hugo-myportfolio-theme
+	url = https://github.com/2-REC/hugo-myportfolio-theme
