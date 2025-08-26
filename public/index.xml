@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wood and Glass</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Wood and Glass</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Paul Hamrick</copyright><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid><description>&lt;no value&gt;</description></item>
+    <item>
+      <title>Glass</title>
+      <link>http://localhost:1313/glass/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/glass/</guid>
+        <media:content url="http://localhost:1313/glass/necklaces_hu_3ace2842abc5d080.jpeg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/glass/necklaces_hu_3ace2842abc5d080.jpeg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
+    <item>
+      <title>Wood</title>
+      <link>http://localhost:1313/wood/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/wood/</guid>
+        <media:content url="http://localhost:1313/wood/pens_1_hu_f68a51a82b7f2554.jpeg" type="image/jpeg"/>
+        <description>
+          &lt;img src=&quot;http://localhost:1313/wood/pens_1_hu_f68a51a82b7f2554.jpeg&quot; /&gt;
+          &lt;p&gt;&lt;no value&gt;&lt;/p&gt;
+        </description></item>
+  </channel>
+</rss>
