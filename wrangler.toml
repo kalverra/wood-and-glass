@@ -1,0 +1,8 @@
+# Configure Cloudflare Worker
+
+name = "wood-and-glass"
+compatibility_date = "2025-08-26"
+
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
