@@ -6,4 +6,8 @@ Built with [Hugo](https://gohugo.io/) and the [gallery theme](https://github.com
 
 ## Contributing
 
-[We use pre-commit](https://pre-commit.com/) 
+[We use pre-commit](https://pre-commit.com/) for simple checks.
+
+```sh
+pre-commit install
+```
