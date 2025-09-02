@@ -5,8 +5,13 @@ repos:
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
+      - id: check-toml
   - repo: local
     hooks:
       - id: build
+        name: Build
+        entry: hugo
+        language: system
         args: ["hugo", "build"]
+        stages: [pre-push]
 default_install_hook_types: [pre-commit, pre-push]
