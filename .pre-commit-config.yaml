@@ -12,6 +12,6 @@ repos:
         name: Build
         entry: hugo
         language: system
-        args: ["hugo", "build"]
+        args: ["build"]
         stages: [pre-push]
 default_install_hook_types: [pre-commit, pre-push]
