@@ -13,7 +13,7 @@ timeout = "120s"
 defaultTheme = "dark"
 description = "Wood and Glass"
 [params.socialIcons]
-facebook = "https://www.facebook.com/"
+# facebook = "https://www.facebook.com/"
 # instagram = "https://www.instagram.com/"
 # github = "https://github.com/nicokaiser/hugo-theme-gallery/"
 # youtube = "https://www.youtube.com/"
