@@ -11,7 +11,3 @@ Built with [Hugo](https://gohugo.io/) and the [gallery theme](https://github.com
 ```sh
 pre-commit install
 ```
-
-## //TODO:
-
-[] Add "Where I'll be next banner" on home page.

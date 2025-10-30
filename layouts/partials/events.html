@@ -1,0 +1,32 @@
+<hgroup class="events-list" aria-labelledby="upcoming-events-title">
+    <h2 id="upcoming-events-title">Upcoming Events</h2>
+    {{ $events := sort .Site.Data.events "date" }}
+    {{ $now := now }}
+    {{ $count := 0 }}
+    <ul class="events-list">
+        {{ range $i, $e := $events }}
+        {{ $eventTime := time $e.date }}
+        {{ if ge $eventTime $now }}
+        <li class="event">
+            <div class="event-when">
+                <time datetime="{{ $eventTime }}">{{ $eventTime | time.Format "Jan 2, 2006" }}</time>
+                <span class="event-time">{{ $eventTime | time.Format "3:04 PM" }}{{ with $e.end }} – {{ time . |
+                    time.Format "3:04 PM" }}{{ end }}</span>
+            </div>
+            <div class="event-what">
+                <strong>{{ $e.title }}</strong>
+                {{ with $e.venue }} at {{ if $e.url }}<a target="_blank" style="text-decoration: underline;"
+                    href="{{ $e.url }}">{{ .
+                    }}</a>{{ else }}{{ . }}{{ end }}{{ end
+                }}
+                {{ with $e.city }}<span class="event-city">, {{ . }}</span>{{ end }}
+            </div>
+        </li>
+        {{ $count = add $count 1 }}
+        {{ end }}
+        {{ end }}
+    </ul>
+    {{ if eq $count 0 }}
+    <p>No upcoming events. Check back soon!</p>
+    {{ end }}
+</hgroup>

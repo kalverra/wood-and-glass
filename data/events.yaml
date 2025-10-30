@@ -1,0 +1,32 @@
+# Simple list of upcoming events for the site
+# Dates should be ISO 8601 so Hugo can parse them reliably
+# Example fields: title, date, venue, url, city
+
+# Example
+# - title: Clarke County Recreation Center Show (Day 1)
+#   date: 2025-11-01T09:00:00-04:00
+#   end: 2025-11-01T16:00:00-04:00
+#   venue: Clarke County Recreation Center
+#   url: "https://maps.app.goo.gl/VFvDGctUGcDUSmBD7"
+#   city: Berryville, VA
+
+- title: Clarke County Recreation Center Show (Day 1)
+  date: 2025-11-01T09:00:00-04:00
+  end: 2025-11-01T16:00:00-04:00
+  venue: Clarke County Recreation Center
+  url: "https://maps.app.goo.gl/VFvDGctUGcDUSmBD7"
+  city: Berryville, VA
+
+- title: Clarke County Recreation Center Show (Day 2)
+  date: 2025-11-02T10:00:00-04:00
+  end: 2025-11-02T15:00:00-04:00
+  venue: Clarke County Recreation Center
+  url: "https://maps.app.goo.gl/VFvDGctUGcDUSmBD7"
+  city: Berryville, VA
+
+- title: Our Farm
+  date: 2025-11-03T10:00:00-04:00
+  end: 2025-11-03T15:00:00-04:00
+  venue: Our Farm
+  url: "https://maps.app.goo.gl/VFvDGctUGcDUSmBD7"
+  city: Strasburg, VA
