@@ -13,3 +13,5 @@ pre-commit install
 ```
 
 ## Updating Events (See here, dad)
+
+See the [doc here](./updating-events.md).
