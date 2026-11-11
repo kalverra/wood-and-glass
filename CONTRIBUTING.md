@@ -8,16 +8,15 @@ Wood and Glass is a static site built with [Hugo](https://gohugo.io/) and the
 You need:
 
 - [Git](https://git-scm.com/)
-- [Hugo **extended**](https://gohugo.io/installation/) (the theme needs image processing). Check with `hugo version`;
-  it should say `+extended`.
-- [pre-commit](https://pre-commit.com/) (optional, but it runs the same style checks as review)
+- [mise](https://mise.jdx.dev/) — it installs the pinned Hugo **extended** build and the linters
 
 Clone with submodules. The theme is a git submodule, and the site won't build without it.
 
 ```sh
 git clone --recurse-submodules <repo-url>
 cd wood-and-glass
-pre-commit install
+mise install    # installs tools from mise.toml
+mise run setup  # installs the git hooks
 ```
 
 Already cloned without `--recurse-submodules`?
@@ -26,28 +25,32 @@ Already cloned without `--recurse-submodules`?
 git submodule update --init --recursive
 ```
 
+Hugo extended matters: the theme processes SCSS. `mise.toml` pins `hugo-extended`, so `hugo version` shows `+extended`.
+
 ## Run it locally
 
 ```sh
-hugo server -D
+mise run serve
 ```
 
 Open <http://localhost:1313>. It reloads when you save a file.
 
 ## Test it
 
-There are no unit tests. The test is that the site builds. CI runs the same command:
+There are no unit tests. The test is that the site builds. CI runs the same check:
 
 ```sh
-hugo --minify
+mise run build
 ```
 
-If it exits clean, you're good. Then look at the pages in the browser. Also run the pre-commit checks (YAML, TOML,
-trailing whitespace, end-of-file):
+If it exits clean, you're good. Then look at the pages in the browser. Also run the lint checks (spelling, secrets,
+YAML, TOML, trailing whitespace, end-of-file):
 
 ```sh
-pre-commit run --all-files
+mise run lint
 ```
+
+Git hooks run the same checks on commit and build the site on push. `mise run check` does both.
 
 ## Where things go
 
@@ -85,11 +88,11 @@ You can edit the file right in GitHub's web UI (pencil icon → propose changes)
 ## Make a change
 
 1. Branch off `main`.
-2. Make the change and check it with `hugo server -D`.
-3. Run `hugo --minify` and `pre-commit run --all-files`.
+2. Make the change and check it with `mise run serve`.
+3. Run `mise run check` (lint plus build).
 4. Push and open a PR to `main`.
 
-CI builds every PR. [CODEOWNERS](./.github/CODEOWNERS) assigns review automatically.
+CI runs `mise run check` on every PR. [CODEOWNERS](./.github/CODEOWNERS) assigns review automatically.
 
 ## Deploy
 
@@ -104,8 +107,8 @@ reachable at two addresses:
 Preview deployments get their own address, `<version>-wood-and-glass.<account-subdomain>.workers.dev`. Both
 `workers.dev` URLs are public.
 
-**Normal flow:** merge to `main`. GitHub Actions ([build.yml](./.github/workflows/build.yml)) runs `hugo --minify` on
-every push to `main` and on every PR. That job only checks that the site builds. It does not publish. The publish
+**Normal flow:** merge to `main`. GitHub Actions ([build.yml](./.github/workflows/build.yml)) runs `mise run check` on
+every push to `main` and on every PR. That job lints and builds. It does not publish. The publish
 happens in Cloudflare. Check the Worker's deployments in the dashboard to see what is live.
 
 **Manual deploy** (needs [wrangler](https://developers.cloudflare.com/workers/wrangler/) and a login with access to the
@@ -125,6 +128,9 @@ Deploy from an up-to-date `main`, not a feature branch.
 
 - **Build fails with a missing theme or layout:** the submodule isn't checked out. Run
   `git submodule update --init --recursive`.
-- **Images missing or Hugo complains about image processing:** you have the non-extended Hugo. Install the extended
-  build.
+- **`hugo: command not found`, or the wrong Hugo version:** run `mise install`. Don't install Hugo another way, or you
+  may get the non-extended build.
+- **Images missing or Hugo complains about image processing:** you have the non-extended Hugo. `mise install` gives
+  you extended; check `hugo version` shows `+extended`.
+- **Git hooks don't run:** run `mise run setup`.
 - **Date in `events.yaml` doesn't parse:** use full ISO 8601 with offset, like `2026-04-18T09:00:00-04:00`.

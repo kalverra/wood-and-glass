@@ -1,0 +1,7 @@
+# `relaxed` skips style opinions (document start, indentation of sequences)
+# and keeps the rules that catch mistakes, such as duplicate keys.
+extends: relaxed
+
+rules:
+  # Prose and scripts wrap wherever they read best.
+  line-length: disable

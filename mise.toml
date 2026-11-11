@@ -1,0 +1,33 @@
+# Toolchain for this repo. `mise install` installs everything below.
+# Run tasks with `mise run <task>` or `mise <task>`.
+[tools]
+# The theme needs Hugo extended for SCSS. Plain `hugo` from mise is not extended.
+hugo-extended = "0.169.0"
+lefthook = "2.2.2"
+typos = "1.52.2"
+betterleaks = "1.10.0"
+editorconfig-checker = "4.0.2"
+yamllint = "1.38.0"
+# The pypi backend needs uv; mise installs it before the Python tools.
+uv = "0.13.7"
+taplo = "0.10.0"
+
+[tasks.setup]
+description = "Install tools and git hooks. Run once after cloning."
+run = "mise install && lefthook install"
+
+[tasks.build]
+description = "Build the site. This is the test; CI runs it."
+run = "hugo --minify"
+
+[tasks.serve]
+description = "Dev server on http://localhost:1313"
+run = "hugo server -D"
+
+[tasks.lint]
+description = "Run every pre-commit check against all files."
+run = "lefthook run pre-commit --all-files --force"
+
+[tasks.check]
+description = "Lint and build. Run before opening a PR."
+depends = ["lint", "build"]

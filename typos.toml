@@ -1,0 +1,9 @@
+# Not ours to spell-check: generated output and the theme submodule.
+[files]
+extend-exclude = [
+  "themes/",
+  "public/",
+  "resources/",
+  "_gen/",
+  "*.{jpeg,jpg,png,gif,ico,webp,pdf,woff2}",
+]
