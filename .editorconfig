@@ -1,0 +1,17 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Prose can wrap wherever it reads best.
+max_line_length = off
+
+[.gitmodules]
+# Git writes this file with tabs.
+indent_style = tab

@@ -6,13 +6,16 @@ Static portfolio site for a wood and glass business. Hugo + the `gallery` theme 
 ## Commands
 
 ```sh
+mise install                              # once; pinned Hugo extended + linters
+mise run setup                            # once; installs the git hooks
 git submodule update --init --recursive   # once; the theme is a submodule
-hugo server -D                            # dev server on http://localhost:1313
-hugo --minify                             # the build. This is the test. CI runs it.
-pre-commit run --all-files                # yaml/toml/whitespace/EOF checks
+mise run serve                            # dev server on http://localhost:1313
+mise run build                            # the build. This is the test. CI runs it.
+mise run lint                             # typos, secrets, yaml/toml, whitespace/EOF
 ```
 
-Use Hugo **extended** (`hugo version` must show `+extended`).
+Use Hugo **extended** (`hugo version` must show `+extended`). `mise.toml` pins `hugo-extended`, so `hugo` on PATH is
+the right build.
 
 To build without touching the repo, write elsewhere: `hugo --minify --destination "$TMPDIR/out"`.
 
@@ -20,9 +23,9 @@ To build without touching the repo, write elsewhere: `hugo --minify --destinatio
 
 There are no unit tests. Before you say a change works:
 
-1. `hugo --minify` exits 0 with no errors or warnings you caused.
-2. `pre-commit run --all-files` passes.
-3. For layout, CSS, or content changes, look at the rendered page (`hugo server -D`), not just the build.
+1. `mise run build` exits 0 with no errors or warnings you caused.
+2. `mise run lint` passes.
+3. For layout, CSS, or content changes, look at the rendered page (`mise run serve`), not just the build.
 
 ## Layout
 
@@ -33,6 +36,8 @@ There are no unit tests. Before you say a change works:
 - `layouts/` — template overrides. Change the site here.
 - `assets/css/custom.css` — styles.
 - `hugo.toml` — site config. `wrangler.toml` — Cloudflare config.
+- `mise.toml` — pinned tool versions and the tasks above.
+- `lefthook.yml` — git hooks. Installed by `mise run setup`.
 - `themes/gallery` — submodule. **Do not edit.** Override in `layouts/` instead.
 - `public/`, `resources/` — build output. Gitignored or generated. Don't commit or hand-edit.
 

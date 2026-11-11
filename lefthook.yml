@@ -1,0 +1,28 @@
+# git hooks. Install with `mise run setup`.
+# `mise run lint` runs the pre-commit checks against every file.
+pre-commit:
+  parallel: true
+  commands:
+    betterleaks:
+      tags: security
+      run: betterleaks protect --staged --redact --no-banner -l warn
+    typos:
+      tags: style
+      run: typos --force-exclude {staged_files}
+    editorconfig:
+      tags: style
+      run: editorconfig-checker {staged_files}
+    yaml:
+      tags: style
+      glob: "*.{yml,yaml}"
+      run: yamllint {staged_files}
+    toml:
+      tags: style
+      glob: "*.toml"
+      run: taplo check {staged_files}
+
+pre-push:
+  commands:
+    build:
+      tags: test
+      run: mise run build
