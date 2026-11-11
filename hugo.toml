@@ -10,8 +10,8 @@ timeZone = "America/New_York"
 timeout = "120s"
 
 [params]
-defaultTheme = "dark"
-description = "Wood and Glass"
+defaultTheme = "light"
+description = "Handcrafted wood and glass by Dave Hamrick. Disabled U.S. Navy veteran-owned and made in Virginia."
 [params.socialIcons]
 # facebook = "https://www.facebook.com/"
 # instagram = "https://www.instagram.com/"
@@ -25,6 +25,37 @@ description = "Wood and Glass"
 #flickr = "https://www.flickr.com"
 #500px = "https://500px"
 #whatsapp = "1234567890"
+
+[[menus.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menus.main]]
+name = "Wood"
+url = "/wood/"
+weight = 2
+
+[[menus.main]]
+name = "Glass"
+url = "/glass/"
+weight = 3
+
+[[menus.main]]
+name = "About Dave"
+url = "/about/"
+weight = 4
+
+[[menus.main]]
+name = "Shop on Etsy"
+url = "https://www.etsy.com/shop/WoodAndGlassLLCShop"
+weight = 5
+
+[[menus.main]]
+name = "Craft Shows"
+url = "/#upcoming-events"
+weight = 6
+
 [params.gallery]
 #boxSpacing = 10
 #targetRowHeight = 288
@@ -46,3 +77,8 @@ includeFields = "ImageDescription|Orientation"
 [services]
 [services.rss]
 limit = 100
+
+[[menus.main]]
+name = "Contact Dave"
+url = "/contact/"
+weight = 7

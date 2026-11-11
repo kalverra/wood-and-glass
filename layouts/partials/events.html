@@ -1,4 +1,4 @@
-<hgroup class="events-list" aria-labelledby="upcoming-events-title">
+<hgroup class="events-list" id="upcoming-events" aria-labelledby="upcoming-events-title">
     <h2 id="upcoming-events-title">Upcoming Events</h2>
     {{ $events := sort .Site.Data.events "date" }}
     {{ $now := now }}

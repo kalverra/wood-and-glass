@@ -1,11 +1,84 @@
 {{ define "main" }}
-{{ partial "title.html" . }}
-{{ partial "events.html" . }}
-{{ partial "categories.html" }}
-{{ partial "featured.html" . }}
-<section class="galleries">
-    {{ range where .Pages "Params.private" "ne" true }}
-    {{ partial "album-card.html" . }}
-    {{ end }}
+<section class="home-hero">
+  <div class="home-hero-copy">
+    <p class="eyebrow">DISABLED U.S. NAVY VETERAN-OWNED <span>·</span> HANDCRAFTED IN VIRGINIA</p>
+    <h1>Handcrafted.<br><em>Individually made.</em></h1>
+    <p class="hero-intro">Distinctive pieces made with care, character, and an appreciation for beautiful materials. From turned writing instruments to one-of-a-kind woodwork and glass creations.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/wood/">Explore the work</a>
+      <a class="text-link" href="https://www.etsy.com/shop/WoodAndGlassLLCShop" target="_blank" rel="noopener noreferrer">Shop on Etsy <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <div class="home-hero-photo">
+    <img src="/wood/pens_1.jpeg" alt="Handcrafted wooden writing instruments by Wood and Glass LLC" fetchpriority="high" />
+    <span class="photo-caption">Made one piece at a time</span>
+  </div>
 </section>
+
+<section class="intro-band">
+  <p class="eyebrow">A SMALL WORKSHOP. A PERSONAL TOUCH.</p>
+  <h2>Useful things should be beautiful, too.</h2>
+  <p>Wood and Glass LLC is an independent, veteran-owned workshop built around the pleasure of working with natural materials. Every piece has its own grain, color, and character—no two are exactly alike.</p>
+</section>
+
+<section class="home-work">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">THE COLLECTIONS</p>
+      <h2>Explore the work</h2>
+    </div>
+    <p>Browse the galleries to see the details, materials, and finished pieces.</p>
+  </div>
+  <div class="work-cards">
+    <a class="work-card" href="/wood/">
+      <img src="/wood/pens_2.jpeg" alt="A selection of handcrafted wooden pens" loading="lazy" />
+      <div class="work-card-copy">
+        <p class="eyebrow">WOOD</p>
+        <h3>Turned wood &amp; handcrafted pieces</h3>
+        <p>Writing instruments, cutting boards, charcuterie boards, and useful objects shaped from distinctive woods.</p>
+        <span class="card-link">View woodwork <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+    <a class="work-card" href="/glass/">
+      <img src="/glass/necklaces.jpeg" alt="Handcrafted glass necklaces" loading="lazy" />
+      <div class="work-card-copy">
+        <p class="eyebrow">GLASS</p>
+        <h3>Glass with its own character</h3>
+        <p>Color, texture, and individual details come together in handcrafted glass pieces.</p>
+        <span class="card-link">View glasswork <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+    <a class="work-card" href="/wood/">
+      <img src="/wood/pipe.jpeg" alt="A handcrafted wooden piece from the workshop" loading="lazy" />
+      <div class="work-card-copy">
+        <p class="eyebrow">FROM THE WORKSHOP</p>
+        <h3>Made by hand, not mass produced</h3>
+        <p>Small-batch work that celebrates the natural beauty and individuality of the material.</p>
+        <span class="card-link">See more creations <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="maker-section">
+  <div class="maker-mark"><img src="/logo.png" alt="Wood and Glass LLC logo" loading="lazy" /></div>
+  <div class="maker-copy">
+    <p class="eyebrow">VETERAN-OWNED · MADE IN VIRGINIA</p>
+    <h2>Made with purpose.<br />Built by hand.</h2>
+    <p>Wood and Glass LLC is owned and operated by Dave Hamrick, a disabled U.S. Navy submarine veteran. The workshop is where he continues to build and create—turning carefully chosen materials into useful, distinctive pieces, one at a time.</p>
+    <a class="text-link" href="/about/">Meet the maker <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section class="shop-band" aria-labelledby="shop-band-title">
+  <p class="eyebrow">FIND WOOD &amp; GLASS</p>
+  <h2 id="shop-band-title">Shop online. Meet us in person.</h2>
+  <p>Browse available pieces on Etsy, or look for Wood and Glass LLC at upcoming craft shows. Have a special idea in mind? Send a message about a custom piece.</p>
+  <div class="hero-actions">
+    <a class="button button-primary" href="https://www.etsy.com/shop/WoodAndGlassLLCShop" target="_blank" rel="noopener noreferrer">Visit our Etsy shop</a>
+    <a class="text-link" href="#upcoming-events">See upcoming events <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+{{ partial "events.html" . }}
 {{ end }}

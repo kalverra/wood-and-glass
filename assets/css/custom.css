@@ -1,12 +1,166 @@
-ul.events-list>li.event {
-    padding: 0.75rem 0;
-    border-top: 1px solid var(--border);
+/* Wood & Glass LLC — review redesign */
+html.light {
+  --surface-1-light: #f5f1e9;
+  --surface-2-light: #e9e0d2;
+  --text-1-light: #29241f;
+  --text-2-light: #6e6255;
+  --border-light: #d6cbbb;
+}
+html, body { scroll-behavior: smooth; }
+body { background: var(--surface-1); }
+body > header {
+  box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto 1.25rem;
+  padding: .8rem clamp(1rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--border);
+}
+body > header img { height: 4.5rem !important; width: auto; }
+body > main { overflow: hidden; }
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+  max-width: 1280px;
+  margin: 0 auto 5rem;
+  padding: 2rem clamp(1.25rem, 5vw, 4rem) 3rem;
+}
+.home-hero-copy { max-width: 570px; }
+.eyebrow {
+  margin: 0 0 1rem;
+  color: #987344;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.6;
+}
+.home-hero h1 {
+  margin: 0 0 1.4rem;
+  color: var(--text-1);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5.4vw, 5.3rem);
+  font-weight: 500;
+  letter-spacing: -.045em;
+  line-height: .99;
+}
+.home-hero h1 em { color: #8a6845; font-weight: 400; }
+.hero-intro {
+  max-width: 490px;
+  color: var(--text-2);
+  font-size: 1.12rem;
+  line-height: 1.8;
+}
+.hero-actions { display:flex; align-items:center; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; }
+.button {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:3.1rem; padding:.8rem 1.35rem; border-radius:3px;
+  font-size:.9rem; font-weight:700; text-decoration:none;
+}
+.button-primary { background:#30271f; color:#fff; }
+.button-primary:hover { background:#765536; }
+.text-link, .card-link { color:#775532; font-weight:700; text-decoration:none; }
+.text-link:hover, .card-link:hover { text-decoration:underline; }
+.home-hero-photo { position:relative; }
+.home-hero-photo img {
+  display:block; width:100%; aspect-ratio: 5 / 4; object-fit:cover;
+  border-radius:3px; box-shadow: 18px 18px 0 #e4d8c6;
+}
+.photo-caption {
+  display:block; margin:1.1rem 0 0; color:var(--text-2);
+  font-family:Georgia,serif; font-size:.95rem; font-style:italic; text-align:right;
+}
+.intro-band {
+  max-width:none; margin:0 auto 5rem; padding:4rem 1.5rem;
+  background:#eae2d6; text-align:center;
+}
+.intro-band .eyebrow { margin-bottom:.8rem; }
+.intro-band h2, .section-heading h2, .maker-copy h2 {
+  margin:0; color:#30271f; font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(2rem,3.6vw,3.25rem); font-weight:500; letter-spacing:-.025em;
+}
+.intro-band > p:last-child {
+  max-width:720px; margin:1.2rem auto 0; color:#65594d;
+  font-size:1.05rem; line-height:1.8;
+}
+.home-work { max-width:1280px; }
+.section-heading {
+  display:flex; justify-content:space-between; align-items:end; gap:2rem;
+  margin:0 auto 2rem; padding:0;
+}
+.section-heading > p { max-width:360px; color:var(--text-2); line-height:1.7; }
+.work-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.35rem; }
+.work-card {
+  display:flex; flex-direction:column; overflow:hidden; border:1px solid var(--border);
+  border-radius:4px; background:#fbf9f5; color:var(--text-1); text-decoration:none;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.work-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px #30271f18; }
+.work-card > img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; }
+.work-card-copy { display:flex; flex:1; flex-direction:column; align-items:flex-start; padding:1.5rem; }
+.work-card-copy .eyebrow { margin-bottom:.65rem; }
+.work-card h3 { margin:0 0 .7rem; color:#30271f; font-family:Georgia,serif; font-size:1.45rem; font-weight:500; line-height:1.2; }
+.work-card-copy > p:not(.eyebrow) { margin:0 0 1.4rem; color:#6e6255; font-size:.96rem; line-height:1.7; }
+.card-link { margin-top:auto; font-size:.9rem; }
+.maker-section {
+  display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  align-items:center; gap:clamp(2rem,6vw,6rem); max-width:1100px;
+  margin:5rem auto; padding:3rem clamp(1.5rem,5vw,4rem);
+  background:#30271f; color:#f5f1e9;
+}
+.maker-mark { display:flex; align-items:center; justify-content:center; min-height:220px; }
+.maker-mark img { display:block; width:340px; max-width:100%; max-height:230px; object-fit:contain; }
+.maker-copy .eyebrow { color:#c5a477; }
+.maker-copy h2 { color:#f5f1e9; }
+.maker-copy > p:not(.eyebrow) { max-width:520px; color:#d4c9bb; font-size:1.02rem; line-height:1.8; }
+.maker-copy .text-link { color:#e1bd8c; }
+.events-list { max-width:900px; padding:0 1.5rem; }
+.events-list h2 { color:var(--text-1); font-family:Georgia,serif; font-weight:500; }
+@media (max-width: 760px) {
+  .home-hero { grid-template-columns:1fr; gap:2rem; margin-bottom:3rem; padding-top:1rem; }
+  .home-hero-copy { order:1; }
+  .home-hero-photo { order:2; }
+  .home-hero-photo img { box-shadow:10px 10px 0 #e4d8c6; }
+  .intro-band { margin-bottom:3.5rem; padding:3rem 1.4rem; }
+  .section-heading { display:block; }
+  .section-heading > p { margin-top:.8rem; }
+  .work-cards { grid-template-columns:1fr; gap:1rem; }
+  .work-card { display:grid; grid-template-columns:minmax(110px,.8fr) minmax(0,1.2fr); }
+  .work-card > img { height:100%; min-height:190px; aspect-ratio:auto; }
+  .work-card-copy { padding:1rem; }
+  .work-card h3 { font-size:1.2rem; }
+  .maker-section { grid-template-columns:1fr; gap:1.5rem; margin:3.5rem 1.25rem; padding:2rem 1.5rem; }
+  .maker-mark { min-height:120px; }
+  .maker-mark img { max-height:130px; }
+}
+@media (max-width: 420px) {
+  .work-card { grid-template-columns:1fr; }
+  .work-card > img { aspect-ratio:16/9; min-height:0; }
 }
 
-ul.events-list>li.event:first-child {
-    border-top: none;
+.shop-band {
+  margin: 5rem auto;
+  padding: 4rem 1.5rem;
+  background: #eae2d6;
+  text-align: center;
 }
-
-.events-list .event-when {
-    min-width: 12ch;
+.shop-band h2 {
+  margin: 0;
+  color: #30271f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 3.6vw, 3.25rem);
+  font-weight: 500;
+  letter-spacing: -.025em;
+}
+.shop-band > p:not(.eyebrow) {
+  max-width: 700px;
+  margin: 1.2rem auto 0;
+  color: #65594d;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+.shop-band .hero-actions { justify-content: center; }
+#upcoming-events { scroll-margin-top: 2rem; }
+@media (max-width: 760px) {
+  .shop-band { margin: 3.5rem 1.25rem; padding: 3rem 1.4rem; }
 }
