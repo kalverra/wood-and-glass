@@ -37,7 +37,7 @@ Open <http://localhost:1313>. It reloads when you save a file.
 
 ## Test it
 
-There are no unit tests. The test is that the site builds. CI runs the same command:
+There are no unit tests. The test is that the site builds. CI runs the same check:
 
 ```sh
 mise run build
@@ -92,7 +92,7 @@ You can edit the file right in GitHub's web UI (pencil icon → propose changes)
 3. Run `mise run check` (lint plus build).
 4. Push and open a PR to `main`.
 
-CI builds every PR. [CODEOWNERS](./.github/CODEOWNERS) assigns review automatically.
+CI runs `mise run check` on every PR. [CODEOWNERS](./.github/CODEOWNERS) assigns review automatically.
 
 ## Deploy
 
@@ -107,8 +107,8 @@ reachable at two addresses:
 Preview deployments get their own address, `<version>-wood-and-glass.<account-subdomain>.workers.dev`. Both
 `workers.dev` URLs are public.
 
-**Normal flow:** merge to `main`. GitHub Actions ([build.yml](./.github/workflows/build.yml)) runs `hugo --minify` on
-every push to `main` and on every PR. That job only checks that the site builds. It does not publish. The publish
+**Normal flow:** merge to `main`. GitHub Actions ([build.yml](./.github/workflows/build.yml)) runs `mise run check` on
+every push to `main` and on every PR. That job lints and builds. It does not publish. The publish
 happens in Cloudflare. Check the Worker's deployments in the dashboard to see what is live.
 
 **Manual deploy** (needs [wrangler](https://developers.cloudflare.com/workers/wrangler/) and a login with access to the

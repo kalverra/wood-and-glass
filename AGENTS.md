@@ -42,10 +42,11 @@ There are no unit tests; the build is the test.
 
 ## Deploy
 
-Cloudflare publishes `public/` (Worker `wood-and-glass`, configured by `wrangler.toml`). CI builds on PRs and on pushes
-to `main`; the publish step lives in Cloudflare, so CI stays build-only. To deploy from `main`, give the owner
-`mise run build && wrangler deploy` — it needs their Cloudflare login. The `workers.dev` account subdomain is private,
-so keep it out of tracked files. Full notes: [CONTRIBUTING.md](./CONTRIBUTING.md#deploy).
+Cloudflare publishes `public/` (Worker `wood-and-glass`, configured by `wrangler.toml`). CI runs `mise run check` (lint
+and build) on PRs and on pushes to `main`; the publish step lives in Cloudflare, so CI stays build-only. To deploy from
+`main`, give the owner `mise run build && wrangler deploy` — it needs their Cloudflare login. The `workers.dev` account
+subdomain is private, so keep it out of tracked files. Full notes:
+[CONTRIBUTING.md](./CONTRIBUTING.md#deploy).
 
 ## Rules
 
