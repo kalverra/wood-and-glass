@@ -6,12 +6,4 @@ Built with [Hugo](https://gohugo.io/) and the [gallery theme](https://github.com
 
 ## Contributing
 
-[We use pre-commit](https://pre-commit.com/) for simple checks.
-
-```sh
-pre-commit install
-```
-
-## Updating Events (See here, dad)
-
-See the [doc here](./updating-events.md).
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup, local testing, and deploys. Agents: see [AGENTS.md](./AGENTS.md).
